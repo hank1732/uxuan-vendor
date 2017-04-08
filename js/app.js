@@ -30,8 +30,6 @@ angular.module('starter.directives', [])
           $backView = $ionicHistory.backView();
           if ($backView) {
             $backView.go();
-          } else {
-            $state.go('app.sessions')
           }
         };
       }

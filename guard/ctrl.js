@@ -196,8 +196,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('guardOrderDetailCtrl', function($scope, $rootScope, $stateParams,
-  UserInfo, StartPrice,
-  FuritOrWash, guardOrderDetailFurit, guardOrderDetailFetchwash,
+  UserInfo, guardOrderDetailFurit, guardOrderDetailFetchwash,
   guardOrderDetailSendwash,
   shopOrderDetailFurit, shopOrderDetailWash) {
   $scope.type = $stateParams.orderType;
@@ -237,22 +236,6 @@ angular.module('starter.controllers', [])
         }
       });
     }
-
-    $scope.clickPrice = function(event, order) {
-      StartPrice.save({
-          orderId: order.orderId
-        })
-        .$promise
-        .then(function(res) {
-          if (res.code === 0) {
-            FuritOrWash.toWash(order.shopId, order.orderId, true);
-            $state.go('washSingleOrder', {
-              shopId: order.shopId,
-              orderId: order.orderId
-            });
-          }
-        });
-    }
   })
 })
 
@@ -268,7 +251,7 @@ angular.module('starter.controllers', [])
   // var methodLogout = type === 'guard' ? guardLogout : shopLogout;
   var data = {
     // 'eguardId': 'C0000000009',
-    // 'shopHostId': 'C0000000008',
+    'shopHostId': 'C0000000007',
     'pos': 0
   };
   UserInfo.then(function(user) {
@@ -336,7 +319,7 @@ angular.module('starter.controllers', [])
         if (res.code === 0) {
           alert('操作成功');
         } else {
-          alert('操作失败！');
+          alert('操作失败！' + res.msg);
         }
         getOrders();
       })
@@ -350,7 +333,7 @@ angular.module('starter.controllers', [])
         if (res.code === 0) {
           alert('操作成功');
         } else {
-          alert('操作失败！');
+          alert('操作失败！' + res.msg);
         }
         getOrders();
       })
@@ -378,6 +361,7 @@ angular.module('starter.controllers', [])
       // data[nameKey] = user.userId;
       data.pos = 0;
       $scope.status.noOrder = false;
+      // data.shopHostId = 'C0000000007';
       methodList[$scope.status.now].get(data, function(data) {
         $scope.orders = addStatus(data.data);
       })

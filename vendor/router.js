@@ -49,25 +49,25 @@ angular.module('starter')
       templateUrl: 'vendor/cashFlow.html'
     })
     .state('vendorRule', {
-      url: '/vendorRule',
+      url: '/vendor/vendorRule',
       templateUrl: 'vendor/rule.html'
     })
     .state('vendorInfo', {
-      url: '/vendorInfo',
+      url: '/vendor/vendorInfo',
       cache: false,
       templateUrl: 'vendor/info.html'
     })
     .state('vendorInfoEdit', {
-      url: '/vendorInfoEdit/:type',
+      url: '/vendor/vendorInfoEdit/:type',
       cache: false,
       templateUrl: 'vendor/infoEdit.html'
     })
     .state('vendorPromteCode', {
-      url: '/vendorPromteCode/:type',
+      url: '/vendor/vendorPromteCode/:type',
       templateUrl: 'vendor/promteCode.html'
     })
     .state('vendorNotice', {
-      url: '/vendorNotice/:type',
+      url: '/vendor/vendorNotice/:type',
       templateUrl: 'vendor/notice.html'
     })
 });

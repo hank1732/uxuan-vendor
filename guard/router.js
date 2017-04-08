@@ -46,34 +46,34 @@ angular.module('starter')
       templateUrl: 'guard/orderDetail.html'
     })
     .state('login', {
-      url: '/login/:type',
+      url: '/guard/login/:type',
       cache: false,
       templateUrl: 'guard/login.html'
     })
     .state('resetPassword', {
-      url: '/resetPassword/:type',
+      url: '/guard/resetPassword/:type',
       templateUrl: 'guard/resetPassword.html'
     })
     .state('guardRule', {
-      url: '/guardRule',
+      url: '/guard/guardRule',
       templateUrl: 'guard/rule.html'
     })
     .state('guardInfo', {
-      url: '/guardInfo',
+      url: '/guard/guardInfo',
       cache: false,
       templateUrl: 'guard/info.html'
     })
     .state('guardInfoEdit', {
-      url: '/guardInfoEdit/:type',
+      url: '/guard/guardInfoEdit/:type',
       cache: false,
       templateUrl: 'guard/infoEdit.html'
     })
     .state('guardPromteCode', {
-      url: '/guardPromteCode/:type',
+      url: '/guard/guardPromteCode/:type',
       templateUrl: 'guard/promteCode.html'
     })
     .state('guardNotice', {
-      url: '/guardNotice/:type',
+      url: '/guard/guardNotice/:type',
       templateUrl: 'guard/notice.html'
     })
 });
