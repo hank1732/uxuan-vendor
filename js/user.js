@@ -11,7 +11,9 @@ angular.module('starter.services', ['ngResource'])
 .factory('UserInfo', function($resource, $q, $timeout, userWechatInfo,
   userRegister) {
   var deferred = $q.defer();
-  var user = {}
+  var user = {
+    'userId': 'C0000000001',
+  }
 
   // ------------for test-----------------
   if (window.location.hostname == "localhost") {

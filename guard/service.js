@@ -16,6 +16,7 @@ var serviceURLs = {
   'shopLogout': '/account/shop/logout',
   'guardInfo': '/account/eguard/extendinfo',
   'guardOrderDetailFurit': '/orderdetail/eguard/fruit',
+  'guardOrderDetailDrink': '/orderdetail/eguard/drink',
   'guardOrderDetailFetchwash': '/orderdetail/eguard/fetchwash',
   'guardOrderDetailSendwash': '/orderdetail/eguard/sendwash',
   'guardOrderNumber': '/communicate/statistic/eguard',
@@ -54,6 +55,11 @@ var finishSendWashUrl = '/communicate/eguardsend/wash/finish';
 var vendorBeginWashUrl = '/communicate/shop/wash/start';
 var vendorFinishWashUrl = '/communicate/shop/wash/finish';
 
+var refuseDrinkUrl = '/communicate/eguard/drink/refuse'
+var acceptDrinkUrl = '/communicate/eguard/drink/accept'
+var fetchDrinkUrl = '/communicate/eguard/drink/fetch'
+var finishDrinkUrl = '/communicate/eguard/drink/finish'
+
 angular.module('starter.services')
 
 .factory('EguardOrderList', function($resource) {
@@ -81,6 +87,11 @@ angular.module('starter.services')
     acceptSendWash: $resource(baseUrl + acceptSendWashUrl),
     fetchSendWash: $resource(baseUrl + fetchSendWashUrl),
     finishSendWash: $resource(baseUrl + finishSendWashUrl),
+    /*Drink*/
+    refuseDrink: $resource(baseUrl + refuseDrinkUrl),
+    acceptDrink: $resource(baseUrl + acceptDrinkUrl),
+    fetchDrink: $resource(baseUrl + fetchDrinkUrl),
+    finishDrink: $resource(baseUrl + finishDrinkUrl)
   };
 })
 

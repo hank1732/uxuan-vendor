@@ -30,6 +30,11 @@ angular.module('starter.directives', [])
           $backView = $ionicHistory.backView();
           if ($backView) {
             $backView.go();
+          } else {
+            $state.go('guard.order', {
+              type: 'guard',
+              part: 'new'
+            });
           }
         };
       }
