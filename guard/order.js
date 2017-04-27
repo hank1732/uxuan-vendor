@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers')
 
 .controller('guardOrderDetailCtrl', function($scope, $rootScope, $stateParams,
   UserInfo, guardOrderDetailFurit, guardOrderDetailFetchwash,

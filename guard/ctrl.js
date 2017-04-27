@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers')
 
 .controller('infoCtrl', function($scope, UserInfo, guardInfo) {
   UserInfo.then(function(user) {
@@ -84,8 +84,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('guardAccountCtrl', function($scope, $stateParams, $state, UserInfo,
-  guardAccount,
-  shopAccount, guardNotices, shopNotices, guardWork, guardFree, guardLogout,
+  guardAccount, shopAccount, guardNotices, shopNotices, guardWork, guardFree, guardLogout,
   shopLogout) {
   var type = $stateParams.type;
   var nameKey = type === 'guard' ? 'eguardId' : 'shopHostId';
@@ -99,6 +98,9 @@ angular.module('starter.controllers', [])
     method.get(data)
       .$promise
       .then(function(res) {
+        if (!res.data) {
+          return
+        }
         $scope.user = res.data;
         $scope.status = { isChecked: res.data.eguardStatusId === 4001 };
         $scope.$watch('status.isChecked', function(newValue, oldValue) {
@@ -110,8 +112,6 @@ angular.module('starter.controllers', [])
             }
           }
         })
-      }, function(res) {
-        // alert('用户名/密码错误');
       });
 
     methodNotice.get(data)
@@ -128,6 +128,7 @@ angular.module('starter.controllers', [])
           $state.go('login', { type: type });
         })
     };
+
   })
 })
 
